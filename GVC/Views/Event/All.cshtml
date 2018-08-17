@@ -1,0 +1,84 @@
+﻿@model List<EventViewModelcs>
+@{
+    ViewData["Title"] = "All";
+}
+
+<h2>All</h2>
+<style>
+    table tbody tr:nth-child(odd) {
+        background: AliceBlue;
+    }
+
+    table tbody tr:nth-child(even) {
+        background: HoneyDew;
+    }
+</style>
+
+<form action="/All" method="get">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Event Name
+                </th>
+                <th>
+                    Odds For First Team
+                </th>
+                <th>
+                    Odds For Draw
+                </th>
+                <th>
+                    Odds For Second Team
+                </th>
+                <th>
+                    Event Start Date
+                </th>
+            </tr>
+        </thead>
+
+
+
+
+        @foreach (var e in Model)
+        {
+
+            <tbody>
+
+                <tr>
+
+                    <th>
+                        @e.EventName
+                    </th>
+                    <th>
+                        @e.OddsForFirstTeam
+                    </th>
+                    <th>
+                        @e.OddsForDraw
+                    </th>
+                    <th>
+                        @e.OddsForSecondTeam
+                    </th>
+                    <th>
+                        @e.EventStartDate
+                    </th>
+                    <th>
+                        <div>
+                            <input type="hidden" name="UserId" value="@e.EventId" />
+                        </div>
+                </tr>
+            </tbody>
+        }
+
+
+    </table>
+
+</form>
+
+
+<form asp-controller="Event" asp-action="EditMode" method="post">
+
+
+    <button type="submit" class="pure-button pure-button-primary">Edit Mode</button>
+
+</form>

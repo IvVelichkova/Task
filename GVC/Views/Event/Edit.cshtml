@@ -1,0 +1,66 @@
+﻿@model EventViewModelcs
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+    <form asp-action="Edit">
+        <div class="form-horizontal">
+           
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="EventId" class="col-md-2 control-label"></label>
+                <div class="col-md-3">
+                    <input asp-for="EventId" class="form-control"  />
+                    <span asp-validation-for="EventId" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="EventName" class="col-md-2 control-label"></label>
+                <div class="col-md-6">
+                    <input asp-for="EventName" class="form-control" />
+                    <span asp-validation-for="EventName" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="OddsForFirstTeam" class="col-md-2 control-label"></label>
+                <div class="col-md-6">
+                    <input asp-for="OddsForFirstTeam" class="form-control" />
+                    <span asp-validation-for="OddsForFirstTeam" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="OddsForDraw"class="col-md-2 control-label"></label>
+                <div class="col-md-6">
+                    <input asp-for="OddsForDraw" class="form-control" />
+                    <span asp-validation-for="OddsForDraw" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="OddsForSecondTeam" class="col-md-2 control-label"></label>
+                <div class="col-md-6">
+                    <input asp-for="OddsForSecondTeam" class="form-control" />
+                    <span asp-validation-for="OddsForSecondTeam" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="EventStartDate" class="col-md-2 control-label"></label>
+                <div class="col-md-6">
+                    <input asp-for="EventStartDate" class="form-control" />
+                    <span asp-validation-for="EventStartDate" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </form>
+
+    

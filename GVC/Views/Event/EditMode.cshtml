@@ -1,0 +1,85 @@
+﻿@model List<EventViewModelcs>
+@{
+    ViewData["Title"] = "EditMode";
+}
+
+<h2>EditMode</h2>
+
+<form asp-controller="Event" asp-action="All" method="post">
+
+    <div>
+        <button type="submit" class="pure-button pure-button-primary" style="float: right">Preview Mode</button>
+        <br />
+
+    </div>
+</form>
+
+@foreach (var e in Model)
+{
+
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>
+                    EventId
+                </th>
+                <th>
+                    Event Name
+                </th>
+                <th>
+                    Odds For First Team
+                </th>
+                <th>
+                    Odds For Draw
+                </th>
+                <th>
+                    Odds For Second Team
+                </th>
+                <th>
+                    Event Start Date
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <th>
+                    @e.EventId
+                </th>
+                <th>
+                    @e.EventName
+                </th>
+                <th>
+                    @e.OddsForFirstTeam
+                </th>
+                <th>
+                    @e.OddsForDraw
+                </th>
+                <th>
+                    @e.OddsForSecondTeam
+                </th>
+                <th>
+                    @e.EventStartDate
+                </th>
+                <th>
+                    <form asp-controller="Event" asp-action="Edit" method="post">
+
+                        @Html.ActionLink("Edit", "Edit", new { id = e.EventId }) |
+
+                    </form>
+                    <form asp-controller="Event" asp-action="Delete" method="post">
+
+                        @Html.ActionLink("Delete", "Delete", new { id = e.EventId })
+                    </form>
+            </tr>
+        </tbody>
+    </table>
+}
+<form asp-controller="Event" asp-action="Create" method="post">
+
+
+    <button type="submit" class="pure-button pure-button-primary">AddNew</button>
+
+</form>
+
